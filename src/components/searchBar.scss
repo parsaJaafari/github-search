@@ -1,0 +1,35 @@
+.search-box__wrapper {
+  margin-bottom: 20px;
+}
+
+.search-box {
+  /* width: 60%; */
+  /* margin: 0 auto; */
+  padding: 20px;
+  border: 1px solid rgb(208, 216, 208);
+  display: flex;
+}
+
+.search-form {
+  width: 100%;
+  display: flex;
+}
+.search-input {
+  width: 100%;
+  padding: 10px;
+  outline: none;
+  justify-content: center;
+  border: none;
+  border: 1px solid rgb(193, 193, 240);
+  border-radius: 25px;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+}
+
+label {
+  text-align: center;
+  margin-bottom: 10px;
+}
