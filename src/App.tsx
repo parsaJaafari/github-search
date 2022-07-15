@@ -1,26 +1,31 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { useState } from 'react';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import HomePage from './pages/HomePage';
+import SearchHistory from './pages/SearchHistory';
+import { Context } from './store/Store';
+import './app.scss';
 
-function App() {
+const App = () => {
+  const [term, setTerm] = useState('');
+  const [foundUser, setFoundUser] = useState({});
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Context.Provider
+      value={{
+        term,
+        setTerm,
+        foundUser,
+        setFoundUser,
+      }}
+    >
+      <Router>
+        <Routes>
+          <Route path="/" element={<HomePage />} />
+          <Route path="/search-history" element={<SearchHistory />} />
+        </Routes>
+      </Router>
+    </Context.Provider>
   );
-}
+};
 
 export default App;
